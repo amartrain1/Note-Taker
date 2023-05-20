@@ -1,8 +1,8 @@
 const express = require('express');
 const path = require('path');
-const { readAndAppend, readFromFile } = require('./helpers.js');
+const { readAndAppend, writeToFile, readFromFile } = require('./helpers.js');
 
-// const uniqueId = require('uuid');
+const uniqueId = require('./uuid.js');
 
 // link express
 const app = express();
@@ -28,7 +28,7 @@ app.post('/api/notes', (req, res) => {
         const newNote = {
             title,
             text,
-            // note_id: uniqueId(),
+            note_id: uniqueId(),
         };
 
         // appends new note to db.json
